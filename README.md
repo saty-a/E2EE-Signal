@@ -1,16 +1,19 @@
-# signal
+# End-to-End Encryption with Signal Protocol in Flutter
 
-A new Flutter project.
+## Introduction
 
-## Getting Started
+This GitHub repository focuses on implementing end-to-end encryption using the Signal Protocol in a Flutter application. The project utilizes the `libsignal_protocol_dart` library to provide secure communication between users.
 
-This project is a starting point for a Flutter application.
+## Key Features
 
-A few resources to get you started if this is your first Flutter project:
+1. **End-to-End Encryption**: The application ensures that messages are encrypted on the sender's device and can only be decrypted on the recipient's device, preventing any third-party access to the communication.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+2. **Signal Protocol Integration**: The project integrates the Signal Protocol using the `libsignal_protocol_dart` library, which provides the necessary cryptographic primitives and protocols for secure messaging.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+3. **Flutter Framework**: The application is built using the Flutter framework, allowing for cross-platform compatibility and native-like performance on both iOS and Android devices.
+
+## Installation and Setup
+
+1. **Clone the repository**: 
+   ```bash
+   git clone https://github.com/your-username/your-repo.git
