@@ -17,3 +17,6 @@ This GitHub repository focuses on implementing end-to-end encryption using the S
 1. **Clone the repository**: 
    ```bash
    git clone https://github.com/your-username/your-repo.git
+
+## Documentation
+For more detailed information about the Signal Protocol and its implementation, please refer to the official [Signal Documentation](https://www.signal.org/docs/)
