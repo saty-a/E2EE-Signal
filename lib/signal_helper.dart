@@ -8,6 +8,7 @@ class SignalDataModel {
   InMemorySignalProtocolStore signalStore;
   InMemorySenderKeyStore senderKeyStore;
   Map<String, dynamic> serverKeyBundle;
+
   SignalDataModel({
     required this.name,
     required this.serverKeyBundle,

@@ -27,7 +27,10 @@ class HomePage extends StatelessWidget {
                   Icons.keyboard_command_key,
                   size: 160,
                 ),
-              ).animate().fadeIn(delay: const Duration(milliseconds: 500)).shake(),
+              )
+                  .animate()
+                  .fadeIn(delay: const Duration(milliseconds: 500))
+                  .shake(),
               Container(
                 margin: const EdgeInsets.only(bottom: 10),
                 padding: const EdgeInsets.all(30),
