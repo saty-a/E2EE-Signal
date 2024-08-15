@@ -14,7 +14,7 @@ This GitHub repository focuses on implementing end-to-end encryption using the S
 
 ## Installation and Setup
 
-1. **Clone the repository**: 
+1. **Clone this repository**: 
    ```bash
    git clone https://github.com/your-username/your-repo.git
 
