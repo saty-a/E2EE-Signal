@@ -15,8 +15,11 @@ class SignalTestScreen extends StatefulWidget {
 class _SignalTestScreenState extends State<SignalTestScreen> {
   SignalDataModel? aliceModel;
   SignalDataModel? bobModel;
+
+  /// Paste the Unique Id of user instead of "alice" and "bob" below for production
   final String alice = "alice";
   final String bob = "bob";
+
   TextEditingController aliceMsgController = TextEditingController();
   TextEditingController bobMsgController = TextEditingController();
   String? bobEncryptedText;
