@@ -20,7 +20,9 @@ class SignalDataModel {
   String get getPreKeyBundleFromServer {
     // Server deletes a pre key it sends
     Map<String, dynamic> data = Map.from(serverKeyBundle);
+    log("remote registration id ${data['registrationId']}");
     data.remove('preKeys');
+
     if (serverKeyBundle['preKeys'].isNotEmpty) {
       data['preKey'] = serverKeyBundle['preKeys'].first;
       serverKeyBundle['preKeys'].removeAt(0);
@@ -193,6 +195,7 @@ class SignalDataModel {
     try {
       SessionCipher session = SessionCipher.fromStore(signalStore,
           SignalProtocolAddress(source, SignalHelper.defaultDeviceId));
+      log("session ${await session.getSessionVersion()} ${await session.getRemoteRegistrationId()}");
       Map data = jsonDecode(msg);
       if (data["type"] == CiphertextMessage.prekeyType) {
         PreKeySignalMessage pre =
@@ -222,6 +225,14 @@ class SignalHelper {
   static Future<SignalDataModel> getSignalModel(String name) async {
     final identityKeyPair = generateIdentityKeyPair();
     final registrationId = generateRegistrationId(true);
+
+    log("registration id of $name $registrationId");
+
+    displayIdentityKeyPair(
+      base64Encode(identityKeyPair.getPrivateKey().serialize()),
+      base64Encode(identityKeyPair.getPublicKey().publicKey.serialize()),
+    );
+
     InMemorySignalProtocolStore signalStore =
         InMemorySignalProtocolStore(identityKeyPair, registrationId);
     final preKeys = generatePreKeys(0, 5);
@@ -258,5 +269,16 @@ class SignalHelper {
       signalStore: signalStore,
     );
     return sm;
+  }
+
+  static displayIdentityKeyPair(String userPrivateKey, String userPublicKey) {
+    final identityKey = IdentityKey.fromBytes(base64Decode(userPublicKey), 0);
+    final publicKeyBytes = identityKey.publicKey.serialize();
+    final privateKey = Curve.decodePrivatePoint(
+        Uint8List.fromList(base64Decode(userPublicKey)));
+    final privateKeyBytes = privateKey.serialize();
+
+    log("is keys equal ${base64Encode(publicKeyBytes) == base64Encode(privateKeyBytes)}");
+    log("Identity key pair: public key: ${base64Encode(publicKeyBytes)} private key: ${base64Encode(privateKeyBytes)}");
   }
 }
